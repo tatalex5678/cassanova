@@ -1,0 +1,458 @@
+{
+  "accounts": {
+    "player_1": {
+      "id": "player_1",
+      "username": "Guest Player",
+      "balance": 0
+    },
+    "A": {
+      "id": "A",
+      "username": "Player_A",
+      "balance": 8500
+    },
+    "Guest Player": {
+      "id": "Guest Player",
+      "username": "Player_Guest Player",
+      "balance": 4001
+    },
+    "house_vault": {
+      "id": "house_vault",
+      "username": "House Profit Vault",
+      "balance": 180
+    }
+  },
+  "transactions": [
+    {
+      "id": "tx_1784248782073",
+      "playerId": "A",
+      "amount": 1200,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784248782073
+    },
+    {
+      "id": "tx_1784248826053",
+      "playerId": "player_1",
+      "amount": 10,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784248826053
+    },
+    {
+      "id": "tx_1784249144455",
+      "playerId": "A",
+      "amount": 1200,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784249144455
+    },
+    {
+      "id": "tx_1784249159272",
+      "playerId": "Guest Player",
+      "amount": 2000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784249159272
+    },
+    {
+      "id": "tx_1784249174061",
+      "playerId": "player_1",
+      "amount": 2000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784249174061
+    },
+    {
+      "id": "tx_1784249196745",
+      "playerId": "player_1",
+      "amount": 1000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784249196745
+    },
+    {
+      "id": "tx_1784249521231_792",
+      "playerId": "player_1",
+      "amount": 1200,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784249521231
+    },
+    {
+      "id": "tx_1784249538067_350",
+      "playerId": "player_1",
+      "amount": 6000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784249538067
+    },
+    {
+      "id": "tx_1784249546093_603",
+      "playerId": "player_1",
+      "amount": 4000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784249546093
+    },
+    {
+      "id": "tx_1784249556852_422",
+      "playerId": "player_1",
+      "amount": 14000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784249556852
+    },
+    {
+      "id": "tx_1784249576730_286",
+      "playerId": "player_1",
+      "amount": -28000,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784249576730
+    },
+    {
+      "id": "tx_1784250587417_659",
+      "playerId": "player_1",
+      "amount": -100,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784250587417
+    },
+    {
+      "id": "tx_slots_1784250597904",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784250597904
+    },
+    {
+      "id": "tx_slots_1784250599715",
+      "playerId": "player_1",
+      "amount": -2,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784250599715
+    },
+    {
+      "id": "tx_slots_1784250601316",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784250601316
+    },
+    {
+      "id": "tx_slots_1784250602983",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784250602983
+    },
+    {
+      "id": "tx_slots_1784250604607",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784250604607
+    },
+    {
+      "id": "tx_1784599304569_353",
+      "playerId": "player_1",
+      "amount": 1000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784599304569
+    },
+    {
+      "id": "tx_1784599310261_681",
+      "playerId": "player_1",
+      "amount": 1000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784599310261
+    },
+    {
+      "id": "tx_1784600225507_43",
+      "playerId": "player_1",
+      "amount": 1000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1784600225507
+    },
+    {
+      "id": "tx_sweep_1784601834834",
+      "playerId": "house_vault",
+      "amount": -2000,
+      "type": "withdrawal",
+      "method": "Business Crypto Treasury",
+      "timestamp": 1784601834834
+    },
+    {
+      "id": "tx_pay_1784605820944",
+      "playerId": "player_1",
+      "amount": 50,
+      "type": "deposit",
+      "method": "apple_pay",
+      "timestamp": 1784605820944
+    },
+    {
+      "id": "tx_pay_1784605852268",
+      "playerId": "player_1",
+      "amount": 50,
+      "type": "deposit",
+      "method": "apple_pay",
+      "timestamp": 1784605852268
+    },
+    {
+      "id": "tx_pay_1784605860355",
+      "playerId": "player_1",
+      "amount": 50,
+      "type": "deposit",
+      "method": "apple_pay",
+      "timestamp": 1784605860355
+    },
+    {
+      "id": "tx_1784612957028_307",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784612957028
+    },
+    {
+      "id": "tx_1784612964051_957",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784612964051
+    },
+    {
+      "id": "tx_1784612972338_344",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784612972338
+    },
+    {
+      "id": "tx_1784612981102_398",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784612981102
+    },
+    {
+      "id": "tx_1784612996080_400",
+      "playerId": "player_1",
+      "amount": -2000,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784612996080
+    },
+    {
+      "id": "tx_1784613006429_285",
+      "playerId": "player_1",
+      "amount": -1288,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1784613006429
+    },
+    {
+      "id": "tx_sweep_1784785162473",
+      "playerId": "house_vault",
+      "amount": -20000,
+      "type": "withdrawal",
+      "method": "0x71C...BusinessTreasury",
+      "timestamp": 1784785162473
+    },
+    {
+      "id": "tx_sweep_1784785181080",
+      "playerId": "house_vault",
+      "amount": -9470,
+      "type": "withdrawal",
+      "method": "0x71C...BusinessTreasury",
+      "timestamp": 1784785181080
+    },
+    {
+      "id": "tx_pay_1784787078406",
+      "playerId": "player_1",
+      "amount": 50,
+      "type": "deposit",
+      "method": "apple_pay",
+      "timestamp": 1784787078406
+    },
+    {
+      "id": "tx_mines_1784787089815",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "mines_game_loss",
+      "timestamp": 1784787089815
+    },
+    {
+      "id": "tx_1785186139535_507",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785186139536
+    },
+    {
+      "id": "tx_1785186170190_118",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785186170190
+    },
+    {
+      "id": "tx_1785186197290_182",
+      "playerId": "player_1",
+      "amount": 10,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1785186197290
+    },
+    {
+      "id": "tx_1785186201520_941",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785186201520
+    },
+    {
+      "id": "tx_1785186259372_481",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785186259372
+    },
+    {
+      "id": "tx_1785186718634_397",
+      "playerId": "player_1",
+      "amount": 10,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1785186718634
+    },
+    {
+      "id": "tx_1785186723999_831",
+      "playerId": "player_1",
+      "amount": 10,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1785186723999
+    },
+    {
+      "id": "tx_1785186728631_172",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785186728631
+    },
+    {
+      "id": "tx_1785186734164_511",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785186734164
+    },
+    {
+      "id": "tx_1785186739123_565",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785186739123
+    },
+    {
+      "id": "tx_pay_1785277812816",
+      "playerId": "player_1",
+      "amount": 50,
+      "type": "deposit",
+      "method": "apple_pay",
+      "timestamp": 1785277812816
+    },
+    {
+      "id": "tx_1785277822007_931",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785277822007
+    },
+    {
+      "id": "tx_1785277837404_524",
+      "playerId": "player_1",
+      "amount": -40,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785277837405
+    },
+    {
+      "id": "tx_1785277887066_25",
+      "playerId": "A",
+      "amount": 2000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1785277887066
+    },
+    {
+      "id": "tx_1785277917200_705",
+      "playerId": "A",
+      "amount": 4000,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1785277917200
+    },
+    {
+      "id": "tx_pay_1785277933509",
+      "playerId": "player_1",
+      "amount": 50,
+      "type": "deposit",
+      "method": "apple_pay",
+      "timestamp": 1785277933509
+    },
+    {
+      "id": "tx_1785277958649_226",
+      "playerId": "player_1",
+      "amount": -10,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785277958649
+    },
+    {
+      "id": "tx_1785278001416_836",
+      "playerId": "player_1",
+      "amount": -40,
+      "type": "withdrawal",
+      "method": "device_wallet_tap",
+      "timestamp": 1785278001416
+    },
+    {
+      "id": "tx_1785278673726_818",
+      "playerId": "A",
+      "amount": 100,
+      "type": "deposit",
+      "method": "device_wallet_tap",
+      "timestamp": 1785278673726
+    },
+    {
+      "id": "tx_dep_1785279284846",
+      "playerId": "Guest Player",
+      "amount": 2001,
+      "type": "deposit",
+      "method": "apple_pay",
+      "timestamp": 1785279284846
+    }
+  ]
+}

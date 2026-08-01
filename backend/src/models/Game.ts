@@ -56,6 +56,8 @@ const GameSchema: Schema = new Schema(
   },
   {
     timestamps: true,
+    // Add this parameter right here to tell Mongoose your custom isNew field is intentional!
+    suppressReservedKeysWarning: true,
   }
 );
 
